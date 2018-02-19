@@ -10,21 +10,33 @@ import UIKit
 
 class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-    var optionsList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
+//    attempt to add category to end of 2nd array
+//    @IBOutlet weak var addCatInput: UITextField!
+//
+//    @IBAction func addCatBtn(_ sender: Any) {
+//        if (addCatInput.text != "")
+//        {
+//            optionsFilterList[1].append(addCatInput.text!)
+//            //clear input to enter new category
+//            addCatInput.text = ""
+//        }
+//    }
+    
+    var optionsFilterList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
     
     var titles:[String] = ["Seasons", "Categories"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return optionsList[section].count
+        return optionsFilterList[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return optionsList.count
+        return optionsFilterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let filterCell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! CustomViewCell
-        filterCell.filterItem.text = optionsList[indexPath.section][indexPath.row]
+        filterCell.filterItem.text = optionsFilterList[indexPath.section][indexPath.row]
         filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
         filterCell.filterCheck.tintColor = UIColor(named: "Green")
         
