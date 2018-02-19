@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  FilterViewController.swift
 //  Bucket List
 //
 //  Created by Erin Wiegman on 2/19/18.
@@ -8,23 +8,12 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var newItemInput: UITextField!
-    //add to item to to do list
-    @IBAction func newItemBtn(_ sender: Any) {
-        if (newItemInput.text != "")
-        {
-            toDoList.append(newItemInput.text!)
-            //clear input to enter new item
-            newItemInput.text = ""
-        }
-    }
-    
+class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
     var optionsList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
     
     var titles:[String] = ["Seasons", "Categories"]
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionsList[section].count
     }
@@ -34,12 +23,12 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newCell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! CustomViewCell
-        newCell.newItem.text = optionsList[indexPath.section][indexPath.row]
-        newCell.newCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-        newCell.newCheck.tintColor = UIColor(named: "Green")
-
-        return newCell
+        let filterCell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! CustomViewCell
+        filterCell.filterItem.text = optionsList[indexPath.section][indexPath.row]
+        filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+        filterCell.filterCheck.tintColor = UIColor(named: "Green")
+        
+        return filterCell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -47,20 +36,20 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // change image on click - toggle is not working
-//    var toggleFlag: Bool = true
+    //    var toggleFlag: Bool = true
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
-//        if (toggleFlag == true) {
-            newCell.newCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
-            newCell.newCheck.tintColor = UIColor(named: "Green")
-//            toggleFlag = false
-//        } else {
-//            newCell.newCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-//            newCell.newCheck.tintColor = UIColor(named: "Green")
-//        }
-//        print("\(optionsList[indexPath.section][indexPath.row])")
-
+        let filterCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
+        //        if (toggleFlag == true) {
+        filterCell.filterCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+        filterCell.filterCheck.tintColor = UIColor(named: "Green")
+        //            toggleFlag = false
+        //        } else {
+        //            filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+        //            filterCell.filterCheck.tintColor = UIColor(named: "Green")
+        //        }
+        //        print("\(optionsList[indexPath.section][indexPath.row])")
+        
     }
     
     override func viewDidLoad() {

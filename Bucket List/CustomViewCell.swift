@@ -11,8 +11,13 @@ import UIKit
 class CustomViewCell: UITableViewCell {
 
     @IBOutlet weak var toDoItem: UILabel!
-    
     @IBOutlet weak var toDoCheck: UIImageView!
+    
+    @IBOutlet weak var filterCheck: UIImageView!
+    @IBOutlet weak var filterItem: UILabel!
+    
+    @IBOutlet weak var newItem: UILabel!
+    @IBOutlet weak var newCheck: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

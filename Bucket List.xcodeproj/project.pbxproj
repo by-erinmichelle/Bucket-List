@@ -15,6 +15,7 @@
 		F83D20DF203B52F500A65B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D20DD203B52F500A65B62 /* LaunchScreen.storyboard */; };
 		F83D20E7203B661100A65B62 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20E6203B661100A65B62 /* ThirdViewController.swift */; };
 		F83D20E9203B748900A65B62 /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20E8203B748900A65B62 /* CustomViewCell.swift */; };
+		F83D20EB203B857B00A65B62 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20EA203B857B00A65B62 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F83D20E0203B52F500A65B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83D20E6203B661100A65B62 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = "Bucket List/ThirdViewController.swift"; sourceTree = "<group>"; };
 		F83D20E8203B748900A65B62 /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
+		F83D20EA203B857B00A65B62 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		F83D20D1203B52F400A65B62 /* Bucket List */ = {
 			isa = PBXGroup;
 			children = (
+				F83D20EA203B857B00A65B62 /* FilterViewController.swift */,
 				F83D20D2203B52F400A65B62 /* AppDelegate.swift */,
 				F83D20D4203B52F400A65B62 /* FirstViewController.swift */,
 				F83D20D6203B52F400A65B62 /* SecondViewController.swift */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83D20EB203B857B00A65B62 /* FilterViewController.swift in Sources */,
 				F83D20D7203B52F400A65B62 /* SecondViewController.swift in Sources */,
 				F83D20E9203B748900A65B62 /* CustomViewCell.swift in Sources */,
 				F83D20D3203B52F400A65B62 /* AppDelegate.swift in Sources */,
