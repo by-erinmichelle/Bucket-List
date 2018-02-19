@@ -65,7 +65,7 @@
         <!--New Item-->
         <scene sceneID="Xf3-Y3-dOb">
             <objects>
-                <viewController title="New Item" id="lK9-vm-heY" sceneMemberID="viewController">
+                <viewController title="New Item" id="lK9-vm-heY" customClass="ThirdViewController" customModule="Bucket_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OtS-5v-eTt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="Rmx-vW-VAc"/>
+                                    <action selector="newItemBtn:" destination="lK9-vm-heY" eventType="touchUpInside" id="Ta7-xP-N7d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,6 +117,9 @@
                     <tabBarItem key="tabBarItem" title="New" image="plus" id="pg4-gv-7a1">
                         <color key="badgeColor" name="Blue"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="newItemInput" destination="4LB-DF-Zoy" id="SMc-ug-btV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-e1-1g6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,7 +278,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DJQ-Id-YcH"/>
         <segue reference="Fxr-Cp-2e8"/>
     </inferredMetricsTieBreakers>
 </document>

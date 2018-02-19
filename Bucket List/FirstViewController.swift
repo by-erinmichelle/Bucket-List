@@ -8,9 +8,12 @@
 
 import UIKit
 
+//make global so it can be accessed by other scripts
+var toDoList = ["Go ice skating", "See Christmas lights", "Go to the beach"]
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var toDoList = ["Go ice skating", "See Christmas lights", "Go to the beach"]
+
     
     @IBOutlet weak var toDoTableView: UITableView!
     
@@ -25,7 +28,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return(toDoCell)
     }
     
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            toDoList.remove(at: indexPath.row)
+            toDoTableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        toDoTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
