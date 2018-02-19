@@ -18,14 +18,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var toDoTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(toDoList.count)
+        return toDoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "toDoCell")
         toDoCell.textLabel?.text = toDoList[indexPath.row]
         
-        return(toDoCell)
+        return toDoCell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
