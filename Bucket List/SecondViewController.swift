@@ -21,6 +21,8 @@ class SecondViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let doneCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "doneCell")
         doneCell.textLabel?.text = doneList[indexPath.row]
+        doneCell.imageView?.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+        doneCell.imageView?.tintColor = UIColor(named: "Green")
         
         return(doneCell)
     }

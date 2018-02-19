@@ -36,6 +36,8 @@ class ThirdViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "newCell")
         newCell.textLabel?.text = optionsList[indexPath.section][indexPath.row]
+        newCell.imageView?.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+        newCell.imageView?.tintColor = UIColor(named: "Green")
         
         return newCell
     }

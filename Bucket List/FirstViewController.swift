@@ -9,11 +9,11 @@
 import UIKit
 
 //make global so it can be accessed by other scripts
-var toDoList = ["Go ice skating", "See Christmas lights", "Go to the beach"]
+var toDoList:[String] = ["Go ice skating", "See Christmas lights", "Go to the beach"]
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    
     
     @IBOutlet weak var toDoTableView: UITableView!
     
@@ -24,6 +24,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "toDoCell")
         toDoCell.textLabel?.text = toDoList[indexPath.row]
+        toDoCell.imageView?.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+        toDoCell.imageView?.tintColor = UIColor(named: "Green")
         
         return toDoCell
     }
