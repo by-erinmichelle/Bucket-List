@@ -41,7 +41,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
+//    check button on click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
             toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)

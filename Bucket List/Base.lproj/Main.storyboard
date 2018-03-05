@@ -199,6 +199,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addCatBtn:" destination="lK9-vm-heY" eventType="touchUpInside" id="UM0-Yn-0B6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,7 +233,9 @@
                         <color key="badgeColor" name="Blue"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="addCatInput" destination="dOG-CE-Tgl" id="GiQ-mt-4bd"/>
                         <outlet property="newItemInput" destination="4LB-DF-Zoy" id="SMc-ug-btV"/>
+                        <outlet property="newTableView" destination="9ym-sP-0g4" id="MIb-UU-beu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-e1-1g6" userLabel="First Responder" sceneMemberID="firstResponder"/>

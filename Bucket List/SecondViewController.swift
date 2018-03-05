@@ -32,6 +32,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         return(doneCell)
     }
     
+//    uncheck button on click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let doneCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
         doneCell.doneCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)

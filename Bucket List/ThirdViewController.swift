@@ -10,6 +10,8 @@ import UIKit
 
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var newTableView: UITableView!
+    
     @IBOutlet weak var newItemInput: UITextField!
     
     //add to item to to do list by clicking "save"
@@ -21,8 +23,19 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             newItemInput.text = ""
         }
     }
-    
+
     var optionsList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
+    
+    @IBOutlet weak var addCatInput: UITextField!
+    
+    @IBAction func addCatBtn(_ sender: Any) {
+        if (addCatInput.text != "")
+        {
+            optionsList[1].append(addCatInput.text!)
+            newTableView.reloadData()
+            addCatInput.text = ""
+        }
+    }
     
     var titles:[String] = ["Seasons", "Categories"]
 
@@ -64,6 +77,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         print(optionsList[indexPath.section][indexPath.row])
         
+    }
+    
+    //    what does this do
+    override func viewDidAppear(_ animated: Bool) {
+        newTableView.reloadData()
     }
     
     override func viewDidLoad() {
