@@ -249,31 +249,37 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="doneCell" id="JuG-7B-QfZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="doneCell" id="JuG-7B-QfZ" customClass="CustomViewCell" customModule="Bucket_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JuG-7B-QfZ" id="aV1-01-XLS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-4i-zwT">
+                                                    <rect key="frame" x="16" y="6" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoG-kC-hc9">
+                                                    <rect key="frame" x="62" y="9" width="251" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="doneCheck" destination="9gL-4i-zwT" id="89U-Y5-f9N"/>
+                                            <outlet property="doneItem" destination="MoG-kC-hc9" id="4wM-Dw-HBi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="hLb-8e-AvB"/>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="KNF-Vy-iE4"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Ra-1fI">
-                                <rect key="frame" x="220" y="419" width="65" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="AhC-DF-mNn"/>
-                                    <constraint firstAttribute="width" constant="65" id="gxM-0W-Edu"/>
-                                </constraints>
-                                <color key="tintColor" name="Blue"/>
-                                <state key="normal" backgroundImage="filter"/>
-                                <connections>
-                                    <segue destination="OJW-Gy-evf" kind="show" id="42O-NH-ZgF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -281,8 +287,6 @@
                             <constraint firstItem="pdi-GJ-NjH" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="FdS-xR-N6f"/>
                             <constraint firstItem="pdi-GJ-NjH" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="gw8-RW-gVO"/>
                             <constraint firstItem="pdi-GJ-NjH" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="hnz-yi-oU9"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="YnV-Ra-1fI" secondAttribute="bottom" constant="35" id="qpk-nc-Fzn"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="YnV-Ra-1fI" secondAttribute="trailing" constant="35" id="wzN-NX-Jff"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
@@ -384,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryk-zZ-3tW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-30" y="1543"/>
+            <point key="canvasLocation" x="-893" y="1544"/>
         </scene>
         <!--To Do-->
         <scene sceneID="yl2-sM-qoP">
@@ -416,14 +420,8 @@
         <namedColor name="Blue">
             <color red="0.49799999589999999" green="0.79199999570000001" blue="0.89800000189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Blue">
-            <color red="0.49799999589999999" green="0.79199999570000001" blue="0.89800000189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Text">
             <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="zPX-oV-YKe"/>
-    </inferredMetricsTieBreakers>
 </document>

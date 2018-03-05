@@ -11,7 +11,8 @@ import UIKit
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var newItemInput: UITextField!
-    //add to item to to do list
+    
+    //add to item to to do list by clicking "save"
     @IBAction func newItemBtn(_ sender: Any) {
         if (newItemInput.text != "")
         {
@@ -46,21 +47,23 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return titles[section]
     }
     
-    // change image on click - toggle is not working
-//    var toggleFlag: Bool = true
+    //    change image on click for each item
+    var toggleFlag: Bool = true
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
-//        if (toggleFlag == true) {
+        if (toggleFlag == true) {
             newCell.newCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
             newCell.newCheck.tintColor = UIColor(named: "Green")
-//            toggleFlag = false
-//        } else {
-//            newCell.newCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-//            newCell.newCheck.tintColor = UIColor(named: "Green")
-//        }
-//        print("\(optionsList[indexPath.section][indexPath.row])")
-
+            toggleFlag = false
+        } else {
+            newCell.newCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+            newCell.newCheck.tintColor = UIColor(named: "Green")
+            toggleFlag = true
+        }
+        
+        print(optionsList[indexPath.section][indexPath.row])
+        
     }
     
     override func viewDidLoad() {

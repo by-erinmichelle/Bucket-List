@@ -13,6 +13,9 @@ class CustomViewCell: UITableViewCell {
     @IBOutlet weak var toDoItem: UILabel!
     @IBOutlet weak var toDoCheck: UIImageView!
     
+    @IBOutlet weak var doneItem: UILabel!
+    @IBOutlet weak var doneCheck: UIImageView!
+    
     @IBOutlet weak var filterCheck: UIImageView!
     @IBOutlet weak var filterItem: UILabel!
     

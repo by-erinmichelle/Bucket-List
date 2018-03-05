@@ -22,47 +22,57 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        }
 //    }
     
+//    data for 2 sections
     var optionsFilterList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
     
+//    titles of 2 sections
     var titles:[String] = ["Seasons", "Categories"]
     
+//    number of rows = number of individual options
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionsFilterList[section].count
     }
     
+//    number of sections = number of sections in options
     func numberOfSections(in tableView: UITableView) -> Int {
         return optionsFilterList.count
     }
     
+//    custom cell setup
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let filterCell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! CustomViewCell
+//      label for option item
         filterCell.filterItem.text = optionsFilterList[indexPath.section][indexPath.row]
+//      unchecked icon
         filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
         filterCell.filterCheck.tintColor = UIColor(named: "Green")
         
         return filterCell
     }
     
+//   give each section a title
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return titles[section]
     }
     
-    // change image on click - toggle is not working
-    //    var toggleFlag: Bool = true
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filterCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
-        //        if (toggleFlag == true) {
+//    change image on click for each item
+var toggleFlag: Bool = true
+
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let filterCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
+    if (toggleFlag == true) {
         filterCell.filterCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
         filterCell.filterCheck.tintColor = UIColor(named: "Green")
-        //            toggleFlag = false
-        //        } else {
-        //            filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-        //            filterCell.filterCheck.tintColor = UIColor(named: "Green")
-        //        }
-        //        print("\(optionsList[indexPath.section][indexPath.row])")
-        
+        toggleFlag = false
+    } else {
+        filterCell.filterCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+        filterCell.filterCheck.tintColor = UIColor(named: "Green")
+        toggleFlag = true
     }
+    
+    print(optionsFilterList[indexPath.section][indexPath.row])
+
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()
