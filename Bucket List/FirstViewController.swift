@@ -40,13 +40,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toDoTableView.reloadData()
         }
     }
+    //    global vars
+    var selectName:String = ""
     
 //    check button on click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
             toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
             toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
-       
+//        selectName = toDoList[indexPath.row]
+//
+//                self.performSegue(withIdentifier: "itemChecked", sender: nil)
+
+        print(selectName)
         print(toDoList[indexPath.row])
 
     }
@@ -65,6 +71,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let doneObj = segue.destination as! SecondViewController
+//        doneObj.transName = selectName
+//    }
 
 
 }

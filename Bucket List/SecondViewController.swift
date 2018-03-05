@@ -13,8 +13,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
 //    completed items. when item is checked in to do its moved to this array
     var doneList = ["Go to a pumpkin patch", "Visit cousins"]
     
-    @IBOutlet weak var doneTableView: UITableView!
+//    getting the items from to do list, store them here
+//    var transImg:String?
+    var transName:String?
     
+    @IBOutlet weak var doneTableView: UITableView!
+
 //    number of rows = number of completed items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(doneList.count)
@@ -41,9 +45,22 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         print(doneList[indexPath.row])
         
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //if transname has info add it to the doneList on load
+//        if let tmpStr = transName {
+//            doneList.append(tmpStr)
+//            print(tmpStr)
+//            
+//        } else {
+//            print("wtf")
+//        }
+//        print(doneList)
     }
 
     override func didReceiveMemoryWarning() {
