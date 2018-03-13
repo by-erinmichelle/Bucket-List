@@ -9,18 +9,6 @@
 import UIKit
 
 class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
-//    attempt to add category to end of 2nd array
-//    @IBOutlet weak var addCatInput: UITextField!
-//
-//    @IBAction func addCatBtn(_ sender: Any) {
-//        if (addCatInput.text != "")
-//        {
-//            optionsFilterList[1].append(addCatInput.text!)
-//            //clear input to enter new category
-//            addCatInput.text = ""
-//        }
-//    }
     
 //    data for 2 sections
     var optionsFilterList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
