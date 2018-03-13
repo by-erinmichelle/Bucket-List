@@ -9,9 +9,10 @@
 import UIKit
 
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    //////////////////////////
+    //    outlets--------------------------------------------
+    /////////////////////////
     @IBOutlet weak var newTableView: UITableView!
-    
     @IBOutlet weak var newItemInput: UITextField!
     
     //add to item to to do list by clicking "save"
@@ -23,8 +24,6 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             newItemInput.text = ""
         }
     }
-
-    var optionsList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
     
     @IBOutlet weak var addCatInput: UITextField!
     
@@ -36,33 +35,57 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             addCatInput.text = ""
         }
     }
-    
-    var titles:[String] = ["Seasons", "Categories"]
 
+    
+    //////////////////////////
+    //    vars--------------------------------------------
+    /////////////////////////
+    var optionsList:[[String]] = [["Spring", "Summer", "Fall", "Winter"], ["Travel", "Food", "Events", "Adventure"]]
+    var titles:[String] = ["Seasons", "Categories"]
+    //    change image on click for each item
+    var toggleFlag: Bool = true
+    
+    
+    //////////////////////////
+    //    number of rows--------------------------------------------
+    /////////////////////////
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionsList[section].count
     }
     
+    
+    //////////////////////////
+    //    number of sections--------------------------------------------
+    /////////////////////////
     func numberOfSections(in tableView: UITableView) -> Int {
         return optionsList.count
     }
     
+    
+    //////////////////////////
+    //    custom view cell setup--------------------------------------------
+    /////////////////////////
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! CustomViewCell
         newCell.newItem.text = optionsList[indexPath.section][indexPath.row]
         newCell.newCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
         newCell.newCheck.tintColor = UIColor(named: "Green")
-
+        
         return newCell
     }
     
+    
+    //////////////////////////
+    //    section titles--------------------------------------------
+    /////////////////////////
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return titles[section]
     }
     
-    //    change image on click for each item
-    var toggleFlag: Bool = true
     
+    //////////////////////////
+    //    select row--------------------------------------------
+    /////////////////////////
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
         if (toggleFlag == true) {
@@ -79,17 +102,24 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    //    what does this do
+    
+    //////////////////////////
+    //    reload data--------------------------------------------
+    /////////////////////////
     override func viewDidAppear(_ animated: Bool) {
         newTableView.reloadData()
     }
     
+    
+    //////////////////////////
+    //    view loaded into memory--------------------------------------------
+    /////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

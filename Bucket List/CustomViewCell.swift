@@ -9,7 +9,10 @@
 import UIKit
 
 class CustomViewCell: UITableViewCell {
-
+    
+/////////////////////////
+//    outlets--------------------------------------------
+/////////////////////////
     @IBOutlet weak var toDoItem: UILabel!
     @IBOutlet weak var toDoCheck: UIImageView!
     
