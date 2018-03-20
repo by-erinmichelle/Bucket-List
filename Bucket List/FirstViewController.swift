@@ -14,6 +14,8 @@ import UIKit
 //make global so it can be accessed by other scripts
 var toDoList:[String] = ["Go ice skating", "See Christmas lights", "Go to the beach"]
 
+
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //////////////////////////
@@ -23,22 +25,36 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var toDoTableView: UITableView!
     
     
+    //////////////////////////
+    //    vars--------------------------------------------
+    /////////////////////////
+    // Link context to persistentContainer
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var toDoEntity: [ToDo] = []
+
 //////////////////////////
 //    number of rows--------------------------------------------
 /////////////////////////
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoList.count
+//        return toDoList.count
+        return toDoEntity.count
+
     }
-    
-    
+
 //////////////////////////
 //    custom cell setup--------------------------------------------
 /////////////////////////
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as! CustomViewCell
+        
+        let onetoDoItem = toDoEntity[indexPath.row]
+
         // label to do item
-        toDoCell.toDoItem.text = toDoList[indexPath.row]
+//        toDoCell.toDoItem.text = toDoList[indexPath.row]
+         toDoCell.toDoItem.text = onetoDoItem.toDoItemName
+
         // unchecked img
         toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
         toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
@@ -82,8 +98,23 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    reload data here --------------------------------------------
     /////////////////////////
     override func viewDidAppear(_ animated: Bool) {
+        getData()
+
         toDoTableView.reloadData()
     }
+    
+    
+    func getData() {
+        // Read People Entity into peopleArray
+        do {
+            toDoEntity = try context.fetch(ToDo.fetchRequest())
+            print("People Entity Fetching success")
+        }
+        catch {
+            print("People Entity Fetching Failed")
+        }
+    }
+    
     
     //////////////////////////
     //    view loaded into memory--------------------------------------------
