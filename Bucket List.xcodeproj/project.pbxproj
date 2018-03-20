@@ -48,7 +48,6 @@
 		F83D20C6203B52F400A65B62 = {
 			isa = PBXGroup;
 			children = (
-				F89BF9722053917500CF785F /* Bucket List.xcdatamodeld */,
 				F83D20D1203B52F400A65B62 /* Bucket List */,
 				F83D20D0203B52F400A65B62 /* Products */,
 			);
@@ -75,6 +74,7 @@
 				F83D20DB203B52F500A65B62 /* Assets.xcassets */,
 				F83D20DD203B52F500A65B62 /* LaunchScreen.storyboard */,
 				F83D20E0203B52F500A65B62 /* Info.plist */,
+				F89BF9722053917500CF785F /* Bucket List.xcdatamodeld */,
 			);
 			path = "Bucket List";
 			sourceTree = "<group>";
