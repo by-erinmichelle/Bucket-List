@@ -21,13 +21,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //////////////////////////
 //    outlets--------------------------------------------
 /////////////////////////
-    //    connect to do table view
     @IBOutlet weak var toDoTableView: UITableView!
     
     
-    //////////////////////////
-    //    vars--------------------------------------------
-    /////////////////////////
+//////////////////////////
+//    vars--------------------------------------------
+/////////////////////////
     // Link context to persistentContainer
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -55,10 +54,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        toDoCell.toDoItem.text = toDoList[indexPath.row]
          toDoCell.toDoItem.text = onetoDoItem.toDoItemName
 
-        // unchecked img
-        toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-        toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
-        
+        // if the boolean is false use the unchecked img
+        if (onetoDoItem.toDoCheckBtn == false) {
+            toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+            toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+            print("its false")
+        } else {
+            print("its true")
+        }
         return toDoCell
     }
     
@@ -82,14 +85,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /////////////////////////
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
+        
+        let onetoDoItem = toDoEntity[indexPath.row]
+        //change the boolean
+        onetoDoItem.toDoCheckBtn = true
+        
+        // check item
+        if (onetoDoItem.toDoCheckBtn == true) {
+
         toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
         toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+            print("check true")
+        } else {
+            print("check false")
+        }
         //        selectName = toDoList[indexPath.row]
         //
         //                self.performSegue(withIdentifier: "itemChecked", sender: nil)
         
-        print(selectName)
-        print(toDoList[indexPath.row])
         
     }
     
