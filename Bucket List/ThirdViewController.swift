@@ -17,12 +17,29 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //add to item to to do list by clicking "save"
     @IBAction func newItemBtn(_ sender: Any) {
-        if (newItemInput.text != "")
-        {
-            toDoList.append(newItemInput.text!)
-            //clear input to enter new item
-            newItemInput.text = ""
-        }
+        print("Save data to CoreData")
+        
+        // Link context to persistentContainer
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // link peopleObj to entity People
+        let toDoObj = ToDo(context: context)
+        
+        // Update atrributes with entity
+        toDoObj.toDoItemName = newItemInput.text
+        
+        // Save to Context back to CoreData
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // Pop this view controller
+//        let _ = navigationController?.popViewController(animated: true)
+//
+//        if (newItemInput.text != "")
+//        {
+//            toDoList.append(newItemInput.text!)
+//            //clear input to enter new item
+//            newItemInput.text = ""
+//        }
     }
     
     @IBOutlet weak var addCatInput: UITextField!
