@@ -92,18 +92,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="To Do" image="unchecked" id="tUv-Oa-XuX"/>
+                    <tabBarItem key="tabBarItem" title="My Bucket List" image="checked" id="tUv-Oa-XuX"/>
                     <navigationItem key="navigationItem" id="0ci-r1-r3N">
                         <barButtonItem key="backBarButtonItem" title="Close" id="fXC-lJ-Dxc"/>
                     </navigationItem>
                     <connections>
                         <outlet property="toDoTableView" destination="MHK-QJ-NDM" id="ap0-XF-OgR"/>
-                        <segue destination="8rJ-Kc-sve" kind="show" identifier="itemChecked" id="st1-Zu-ekM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-891" y="774"/>
+            <point key="canvasLocation" x="-403" y="784"/>
         </scene>
         <!--New Item-->
         <scene sceneID="Xf3-Y3-dOb">
@@ -113,8 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5q-zO-FN1">
-                                <rect key="frame" x="15" y="25" width="105" height="25.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What will you do?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5q-zO-FN1">
+                                <rect key="frame" x="15" y="25" width="158" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72.5" id="eon-NR-eZf"/>
                                 </constraints>
@@ -122,7 +121,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="   What will you do?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-DF-Zoy">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="   Set a goal..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-DF-Zoy">
                                 <rect key="frame" x="15" y="55.5" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zcX-Tf-rPP"/>
@@ -138,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Uhh-zc-CeU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Save to Bucket List">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -180,7 +179,7 @@
                                     <outlet property="delegate" destination="lK9-vm-heY" id="QPf-FP-ce6"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="   Add category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-CE-Tgl">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="   Add category..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-CE-Tgl">
                                 <rect key="frame" x="15" y="399" width="225" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="225" id="LOv-yi-kti"/>
@@ -208,7 +207,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gsp-0B-lAV" firstAttribute="trailing" secondItem="jmq-3S-rCj" secondAttribute="trailing" constant="15" id="1qQ-No-hT6"/>
-                            <constraint firstItem="gsp-0B-lAV" firstAttribute="trailing" secondItem="N5q-zO-FN1" secondAttribute="trailing" constant="200" id="6al-Yh-X2P"/>
                             <constraint firstItem="gsp-0B-lAV" firstAttribute="trailing" secondItem="4LB-DF-Zoy" secondAttribute="trailing" constant="15" id="ALP-QL-2RR"/>
                             <constraint firstItem="BaR-am-5Fx" firstAttribute="top" secondItem="9ym-sP-0g4" secondAttribute="bottom" constant="20" id="ARn-eh-kM0"/>
                             <constraint firstItem="BaR-am-5Fx" firstAttribute="leading" secondItem="dOG-CE-Tgl" secondAttribute="trailing" constant="20" id="AgT-Hh-EWQ"/>
@@ -230,7 +228,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gsp-0B-lAV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New" image="plus" id="pg4-gv-7a1">
+                    <tabBarItem key="tabBarItem" title="Add Item" image="plus" id="pg4-gv-7a1">
                         <color key="badgeColor" name="Blue"/>
                     </tabBarItem>
                     <connections>
@@ -241,78 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-e1-1g6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="773"/>
-        </scene>
-        <!--Done-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController storyboardIdentifier="doneView" title="Done" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Bucket_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-GJ-NjH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="doneCell" id="JuG-7B-QfZ" customClass="CustomViewCell" customModule="Bucket_List" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JuG-7B-QfZ" id="aV1-01-XLS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-4i-zwT">
-                                                    <rect key="frame" x="10" y="7" width="30" height="29"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoG-kC-hc9">
-                                                    <rect key="frame" x="60" y="0.0" width="260" height="44"/>
-                                                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9gL-4i-zwT" firstAttribute="top" secondItem="aV1-01-XLS" secondAttribute="top" constant="7" id="8pd-Ol-Mzq"/>
-                                                <constraint firstAttribute="bottom" secondItem="MoG-kC-hc9" secondAttribute="bottom" id="EWg-eM-2Sz"/>
-                                                <constraint firstAttribute="bottom" secondItem="9gL-4i-zwT" secondAttribute="bottom" constant="7" id="Jv3-3X-X9Q"/>
-                                                <constraint firstItem="MoG-kC-hc9" firstAttribute="top" secondItem="aV1-01-XLS" secondAttribute="top" id="W1S-10-Ry0"/>
-                                                <constraint firstAttribute="trailing" secondItem="MoG-kC-hc9" secondAttribute="trailing" id="XJv-7c-SfB"/>
-                                                <constraint firstItem="9gL-4i-zwT" firstAttribute="leading" secondItem="aV1-01-XLS" secondAttribute="leading" constant="10" id="gly-fo-jA1"/>
-                                                <constraint firstItem="MoG-kC-hc9" firstAttribute="leading" secondItem="9gL-4i-zwT" secondAttribute="trailing" constant="20" id="yiy-RP-klR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="doneCheck" destination="9gL-4i-zwT" id="89U-Y5-f9N"/>
-                                            <outlet property="doneItem" destination="MoG-kC-hc9" id="4wM-Dw-HBi"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="hLb-8e-AvB"/>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="KNF-Vy-iE4"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="pdi-GJ-NjH" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="1X5-bb-t6e"/>
-                            <constraint firstItem="pdi-GJ-NjH" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="FdS-xR-N6f"/>
-                            <constraint firstItem="pdi-GJ-NjH" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="gw8-RW-gVO"/>
-                            <constraint firstItem="pdi-GJ-NjH" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="hnz-yi-oU9"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Done" image="checked" id="cPa-gy-q4n">
-                        <color key="badgeColor" name="Blue"/>
-                    </tabBarItem>
-                    <connections>
-                        <outlet property="doneTableView" destination="pdi-GJ-NjH" id="7yQ-A9-SSx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="772.18309859154931"/>
+            <point key="canvasLocation" x="394" y="784"/>
         </scene>
         <!--Filter-->
         <scene sceneID="fhg-fj-E1m">
@@ -364,7 +291,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Zlg-qK-5cA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Save Filter">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -389,7 +316,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EUZ-qf-KqD" firstAttribute="bottom" secondItem="g6C-p1-fhc" secondAttribute="bottom" constant="20" id="0bi-1s-Ffn"/>
                             <constraint firstItem="1RI-GG-mKl" firstAttribute="leading" secondItem="EUZ-qf-KqD" secondAttribute="leading" id="4BL-e2-a1G"/>
@@ -427,7 +354,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="dOA-K6-uI5"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="hRG-Fz-Gtx"/>
                         <segue destination="lK9-vm-heY" kind="relationship" relationship="viewControllers" id="JPi-EA-d2l"/>
                     </connections>
                 </tabBarController>
@@ -448,7 +374,4 @@
             <color red="0.15700000524520874" green="0.15700000524520874" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="st1-Zu-ekM"/>
-    </inferredMetricsTieBreakers>
 </document>

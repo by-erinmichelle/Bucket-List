@@ -38,7 +38,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoEntity.count
-//can i return the number of rows that have a boolean of false?
+        //can i return the number of rows that have a boolean of false?
     }
 
 //////////////////////////
@@ -46,20 +46,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as! CustomViewCell
+//        let doneCell = tableView.dequeueReusableCell(withIdentifier: "doneCell", for: indexPath) as! CustomViewCell
+       
+            let onetoDoItem = toDoEntity[indexPath.row]
+            if (onetoDoItem.isChecked == false) {
+                toDoCell.toDoItem.text = onetoDoItem.toDoItemName
+                toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
+                toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+                print("its false")
+            } else {
+//                            doneCell.doneItem.text = onetoDoItem.toDoItemName
+//                            doneCell.doneCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+//                            doneCell.doneCheck.tintColor = UIColor(named: "Green")
+            }
         
-        let onetoDoItem = toDoEntity[indexPath.row]
-
         // label to do item
-         toDoCell.toDoItem.text = onetoDoItem.toDoItemName
 
         // if the boolean is false use the unchecked img
-        if (onetoDoItem.isChecked == false) {
-            toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
-            toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
-            print("its false")
-        } else {
-            print("its true")
-        }
+        
         return toDoCell
     }
     
@@ -69,7 +73,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /////////////////////////
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("Delete row.. " + String(indexPath.row))
             // extract item from array
             let oneToDoItem = toDoEntity[indexPath.row]
             // Delete that item from context
@@ -91,22 +94,25 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /////////////////////////
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
-        
+//        let doneCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
+
         let onetoDoItem = toDoEntity[indexPath.row]
         //change the boolean
         onetoDoItem.isChecked = true
         
         // check item
         if (onetoDoItem.isChecked == true) {
-
-        toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
-        toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+            toDoCell.toDoItem.text = nil
+            toDoCell.toDoCheck.image = nil
+            toDoTableView.reloadData()
+//            doneCell.doneItem.text = onetoDoItem.toDoItemName
+//        doneCell.doneCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+//        doneCell.doneCheck.tintColor = UIColor(named: "Green")
             print("check true")
         } else {
             print("check false")
         }
         //        selectName = toDoList[indexPath.row]
-        //
         //                self.performSegue(withIdentifier: "itemChecked", sender: nil)
         
         
@@ -124,7 +130,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func getData() {
-        // Read People Entity into peopleArray
+        // Read to do Entity into toDoEntity
         do {
             toDoEntity = try context.fetch(ToDo.fetchRequest())
             print("People Entity Fetching success")

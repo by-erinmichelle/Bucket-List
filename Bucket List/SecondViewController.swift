@@ -29,7 +29,24 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //    getting the items from to do list, store them here
     //    var transImg:String?
     var transName:String?
+
+//    let predicate = NSPredicate(format: "isChecked == %@", NSNumber(value: true))
+
+//    let predicate = NSPredicate(format: "isChecked = \(NSNumber(value:true))")
     
+//        let toDoEntity.predicate = predicate
+    
+//        do {
+//            
+//            let results = try managedObjectContext.executeFetchRequest(fetchRequest) as! [ToDo]
+//            return results
+//            
+//        } catch {
+//            
+//        }
+//        
+//        return []
+
     //////////////////////////
     //    number of rows--------------------------------------------
     /////////////////////////
@@ -38,10 +55,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
 //        return(doneList.count)
 //        let onetoDoItem = toDoEntity[Int.row]
 
-//        if (onetoDoItem.isChecked == true) {
-            return toDoEntity.count
-//        }
-
+        return toDoEntity.count
 
     }
     
@@ -52,6 +66,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         let doneCell = tableView.dequeueReusableCell(withIdentifier: "doneCell", for: indexPath) as! CustomViewCell
         
         let onetoDoItem = toDoEntity[indexPath.row]
+        if (onetoDoItem.isChecked == true) {
 
         //        label for completed item
         doneCell.doneItem.text = onetoDoItem.toDoItemName
@@ -59,7 +74,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         //        checked img
         doneCell.doneCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
         doneCell.doneCheck.tintColor = UIColor(named: "Green")
-        
+        }
         return(doneCell)
     }
     
@@ -82,6 +97,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         getData()
         
         doneTableView.reloadData()
+
     }
     
     
