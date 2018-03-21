@@ -11,8 +11,6 @@ import UIKit
 //////////////////////////
 //    global vars--------------------------------------------
 /////////////////////////
-//make global so it can be accessed by other scripts
-//var toDoList:[String] = ["Go ice skating", "See Christmas lights", "Go to the beach"]
 
 
 
@@ -38,7 +36,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoEntity.count
-        //can i return the number of rows that have a boolean of false?
     }
 
 //////////////////////////
@@ -46,7 +43,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as! CustomViewCell
-//        let doneCell = tableView.dequeueReusableCell(withIdentifier: "doneCell", for: indexPath) as! CustomViewCell
+
        
             let onetoDoItem = toDoEntity[indexPath.row]
             if (onetoDoItem.isChecked == false) {
@@ -54,15 +51,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
                 toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
                 print("its false")
-            } else {
-//                            doneCell.doneItem.text = onetoDoItem.toDoItemName
-//                            doneCell.doneCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
-//                            doneCell.doneCheck.tintColor = UIColor(named: "Green")
             }
-        
-        // label to do item
-
-        // if the boolean is false use the unchecked img
         
         return toDoCell
     }
@@ -94,7 +83,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /////////////////////////
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
-//        let doneCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
 
         let onetoDoItem = toDoEntity[indexPath.row]
         //change the boolean
@@ -102,12 +90,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // check item
         if (onetoDoItem.isChecked == true) {
-            toDoCell.toDoItem.text = nil
-            toDoCell.toDoCheck.image = nil
+            toDoCell.toDoItem.text = onetoDoItem.toDoItemName
+            toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+            toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+            
+            context.delete(onetoDoItem)
+            // Save context back to CoreData
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            // get fresh data
+            getData()
+            // Reload table view
             toDoTableView.reloadData()
-//            doneCell.doneItem.text = onetoDoItem.toDoItemName
-//        doneCell.doneCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
-//        doneCell.doneCheck.tintColor = UIColor(named: "Green")
             print("check true")
         } else {
             print("check false")
