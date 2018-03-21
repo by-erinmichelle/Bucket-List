@@ -12,7 +12,7 @@ import UIKit
 //    global vars--------------------------------------------
 /////////////////////////
 //make global so it can be accessed by other scripts
-var toDoList:[String] = ["Go ice skating", "See Christmas lights", "Go to the beach"]
+//var toDoList:[String] = ["Go ice skating", "See Christmas lights", "Go to the beach"]
 
 
 
@@ -37,9 +37,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return toDoList.count
         return toDoEntity.count
-
+//can i return the number of rows that have a boolean of false?
     }
 
 //////////////////////////
@@ -51,11 +50,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let onetoDoItem = toDoEntity[indexPath.row]
 
         // label to do item
-//        toDoCell.toDoItem.text = toDoList[indexPath.row]
          toDoCell.toDoItem.text = onetoDoItem.toDoItemName
 
         // if the boolean is false use the unchecked img
-        if (onetoDoItem.toDoCheckBtn == false) {
+        if (onetoDoItem.isChecked == false) {
             toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
             toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
             print("its false")
@@ -70,16 +68,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    delete a to do item--------------------------------------------
     /////////////////////////
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete
-        {
-            toDoList.remove(at: indexPath.row)
+        if editingStyle == .delete {
+            print("Delete row.. " + String(indexPath.row))
+            // extract item from array
+            let oneToDoItem = toDoEntity[indexPath.row]
+            // Delete that item from context
+            context.delete(oneToDoItem)
+            // Save context back to CoreData
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            // get fresh data
+            getData()
+            // Reload table view
             toDoTableView.reloadData()
         }
     }
     //    global vars
     var selectName:String = ""
     
-    
+
     //////////////////////////
     //    select row --------------------------------------------
     /////////////////////////
@@ -88,10 +94,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let onetoDoItem = toDoEntity[indexPath.row]
         //change the boolean
-        onetoDoItem.toDoCheckBtn = true
+        onetoDoItem.isChecked = true
         
         // check item
-        if (onetoDoItem.toDoCheckBtn == true) {
+        if (onetoDoItem.isChecked == true) {
 
         toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
         toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
