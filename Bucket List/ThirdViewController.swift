@@ -15,12 +15,14 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newItemInput: UITextField!
     
+    @IBOutlet weak var newItemBtn: UIButton!
+
     //add to item to to do list by clicking "save"
     @IBAction func newItemBtn(_ sender: Any) {
         
         if (newItemInput.text != "")
         {
-        
+          
         print("Save data to CoreData")
 
         // Link context to persistentContainer
@@ -32,7 +34,28 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         toDoObj.toDoItemName = newItemInput.text
         //clear input to enter new item
         newItemInput.text = ""
-        
+                    
+            
+            // Fade out to set the text
+//            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+//                self.newItemBtn.setTitle("Saved!", for: .normal)
+//
+//            }, completion: {
+//                (finished: Bool) -> Void in
+
+                //Once the label is completely invisible, set the text and fade it back in
+                self.newItemBtn.setTitle("Save to Bucket List", for: .normal)
+                self.newItemBtn.setTitle("Saved!", for: .highlighted)
+
+                
+                // Fade in
+//                UIView.animate(withDuration: 1.0, delay: 2.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+//                    self.newItemBtn.setTitle("Save to Bucket List", for: .normal)
+//
+//                }, completion: nil)
+//
+//
+//            })
         // Save to Context back to CoreData
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         } else {
@@ -40,6 +63,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
+
     
     @IBOutlet weak var addCatInput: UITextField!
     
@@ -124,6 +148,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /////////////////////////
     override func viewDidAppear(_ animated: Bool) {
         newTableView.reloadData()
+//        self.newItemBtn.title(for: .normal)
+
+    
     }
     
     

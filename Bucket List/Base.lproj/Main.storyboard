@@ -130,7 +130,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmq-3S-rCj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmq-3S-rCj">
                                 <rect key="frame" x="15" y="444" width="290" height="50"/>
                                 <color key="backgroundColor" name="Blue"/>
                                 <constraints>
@@ -233,6 +233,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="addCatInput" destination="dOG-CE-Tgl" id="GiQ-mt-4bd"/>
+                        <outlet property="newItemBtn" destination="jmq-3S-rCj" id="ciI-3N-Ljl"/>
                         <outlet property="newItemInput" destination="4LB-DF-Zoy" id="SMc-ug-btV"/>
                         <outlet property="newTableView" destination="9ym-sP-0g4" id="MIb-UU-beu"/>
                     </connections>

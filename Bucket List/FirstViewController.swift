@@ -91,16 +91,32 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // check item
         if (onetoDoItem.isChecked == true) {
             toDoCell.toDoItem.text = onetoDoItem.toDoItemName
-            toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
-            toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
             
-            context.delete(onetoDoItem)
-            // Save context back to CoreData
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            // get fresh data
-            getData()
-            // Reload table view
-            toDoTableView.reloadData()
+            // Fade out to set the text
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                toDoCell.toDoItem.alpha = 0.0
+                toDoCell.toDoCheck.alpha = 0.0
+                toDoCell.toDoCheck.image = UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate)
+                toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                //Once the label is completely invisible, set the text and fade it back in
+      
+                
+                // Fade in
+                UIView.animate(withDuration: 0.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                    toDoCell.toDoItem.alpha = 1.0
+                    toDoCell.toDoCheck.alpha = 1.0
+                    self.context.delete(onetoDoItem)
+                    // Save context back to CoreData
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    // get fresh data
+                    self.getData()
+                    // Reload table view
+                    self.toDoTableView.reloadData()
+                }, completion: nil)
+            })
             print("check true")
         } else {
             print("check false")
