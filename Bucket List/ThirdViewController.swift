@@ -13,6 +13,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //////////////////////////
     //    outlets--------------------------------------------
     /////////////////////////
+
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newItemInput: UITextField!
     
@@ -38,6 +39,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         //remove "no items" msg
         emptyMessage.removeFromSuperview()
+    
 
             // Fade out to set the text
 //            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {

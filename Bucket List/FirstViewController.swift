@@ -13,15 +13,15 @@ import UIKit
 /////////////////////////
 let emptyMessage = UILabel(frame: CGRect(x: 15, y: 50, width: 300, height: 80))
 
-
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //////////////////////////
 //    outlets--------------------------------------------
 /////////////////////////
     @IBOutlet weak var toDoTableView: UITableView!
+    @IBOutlet weak var filterBtn: UIButton!
     
-//////////////////////////
+    //////////////////////////
 //    vars--------------------------------------------
 /////////////////////////
     // Link context to persistentContainer
@@ -38,10 +38,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-
         return toDoEntity.count
-        
-
     }
 
 //////////////////////////
@@ -133,8 +130,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidAppear(_ animated: Bool) {
         print("view appeared")
         getData()
-       
-        
+
         toDoTableView.reloadData()
     }
     
@@ -145,34 +141,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toDoEntity = try context.fetch(ToDo.fetchRequest())
 
             if (toDoEntity.count == 0) {
-                print("noitems")
-                // CGRectMake has been deprecated - and should be let, not var
-                
-                // you will probably want to set the font (remember to use Dynamic Type!)
-//                emptyMessage.font = UIFont.preferredFont(forTextStyle: .footnote)
                 emptyMessage.font = customFont
-                
-                // and set the text color too - remember good contrast
-//                emptyMessage.textColor = .black
                 emptyMessage.textColor = UIColor(named: "Text")
                 emptyMessage.numberOfLines = 3
                 
-                // may not be necessary (e.g., if the width & height match the superview)
-                // if you do need to center, CGPointMake has been deprecated, so use this
-//                emptyMessage.center = CGPoint(x: 160, y: 284)
-                
-                // this changed in Swift 3 (much better, no?)
-//                emptyMessage.textAlignment = .center
-                
+                filterBtn.isHidden = true
                 emptyMessage.text = "You don't have anything on your bucket list right now. Click the 'Add Item' tab to set some goals!"
                 
                 self.view.addSubview(emptyMessage)
             } else {
-//                print("hide it")
-//                label.removeFromSuperview()
-//                label.text = nil
-//                print("FUCING hide it")
-
+                filterBtn.isHidden = false
             }
         }
         catch {
