@@ -11,7 +11,7 @@ import UIKit
 //////////////////////////
 //    global vars--------------------------------------------
 /////////////////////////
-let emptyMessage = UILabel(frame: CGRect(x: 60, y: 11, width: 245, height: 22))
+let emptyMessage = UILabel(frame: CGRect(x: 15, y: 50, width: 300, height: 80))
 
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -149,19 +149,22 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 // CGRectMake has been deprecated - and should be let, not var
                 
                 // you will probably want to set the font (remember to use Dynamic Type!)
-                emptyMessage.font = UIFont.preferredFont(forTextStyle: .footnote)
+//                emptyMessage.font = UIFont.preferredFont(forTextStyle: .footnote)
+                emptyMessage.font = customFont
                 
                 // and set the text color too - remember good contrast
-                emptyMessage.textColor = .black
+//                emptyMessage.textColor = .black
+                emptyMessage.textColor = UIColor(named: "Text")
+                emptyMessage.numberOfLines = 3
                 
                 // may not be necessary (e.g., if the width & height match the superview)
                 // if you do need to center, CGPointMake has been deprecated, so use this
-                emptyMessage.center = CGPoint(x: 160, y: 284)
+//                emptyMessage.center = CGPoint(x: 160, y: 284)
                 
                 // this changed in Swift 3 (much better, no?)
-                emptyMessage.textAlignment = .center
+//                emptyMessage.textAlignment = .center
                 
-                emptyMessage.text = "I am a test label"
+                emptyMessage.text = "You don't have anything on your bucket list right now. Click the 'Add Item' tab to set some goals!"
                 
                 self.view.addSubview(emptyMessage)
             } else {
