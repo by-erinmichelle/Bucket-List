@@ -15,7 +15,6 @@
 		F83D20DF203B52F500A65B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D20DD203B52F500A65B62 /* LaunchScreen.storyboard */; };
 		F83D20E7203B661100A65B62 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20E6203B661100A65B62 /* ThirdViewController.swift */; };
 		F83D20E9203B748900A65B62 /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20E8203B748900A65B62 /* CustomViewCell.swift */; };
-		F83D20EB203B857B00A65B62 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D20EA203B857B00A65B62 /* FilterViewController.swift */; };
 		F84E4931206558870008E64C /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F84E4930206558860008E64C /* Raleway-Regular.ttf */; };
 		F84E4936206558E80008E64C /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F84E4932206558E40008E64C /* Raleway-Bold.ttf */; };
 		F84E4938206558E80008E64C /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F84E4934206558E60008E64C /* Raleway-SemiBold.ttf */; };
@@ -33,7 +32,6 @@
 		F83D20E0203B52F500A65B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83D20E6203B661100A65B62 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		F83D20E8203B748900A65B62 /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
-		F83D20EA203B857B00A65B62 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F84E4930206558860008E64C /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		F84E4932206558E40008E64C /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		F84E4934206558E60008E64C /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 				F84E4934206558E60008E64C /* Raleway-SemiBold.ttf */,
 				F84E4930206558860008E64C /* Raleway-Regular.ttf */,
 				F83D20E6203B661100A65B62 /* ThirdViewController.swift */,
-				F83D20EA203B857B00A65B62 /* FilterViewController.swift */,
 				F83D20D2203B52F400A65B62 /* AppDelegate.swift */,
 				F83D20D4203B52F400A65B62 /* FirstViewController.swift */,
 				F83D20D6203B52F400A65B62 /* SecondViewController.swift */,
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F83D20EB203B857B00A65B62 /* FilterViewController.swift in Sources */,
 				F83D20D7203B52F400A65B62 /* SecondViewController.swift in Sources */,
 				F83D20E9203B748900A65B62 /* CustomViewCell.swift in Sources */,
 				F83D20D3203B52F400A65B62 /* AppDelegate.swift in Sources */,

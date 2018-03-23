@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C205" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
-        <attribute name="catNames" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
-    <entity name="Seasons" representedClassName="Seasons" syncable="YES" codeGenerationType="class">
-        <attribute name="fall" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="spring" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="summer" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="winter" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
     <entity name="ToDo" representedClassName="ToDo" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isChecked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFall" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSpring" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSummer" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isWinter" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="toDoItemName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Seasons" positionX="-63" positionY="0" width="128" height="120"/>
-        <element name="Categories" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

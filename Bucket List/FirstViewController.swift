@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 //////////////////////////
 //    global vars--------------------------------------------
@@ -20,15 +21,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     @IBOutlet weak var toDoTableView: UITableView!
     @IBOutlet weak var filterBtn: UIButton!
-    
-    //////////////////////////
+  
+//////////////////////////
 //    vars--------------------------------------------
 /////////////////////////
     // Link context to persistentContainer
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var toDoEntity: [ToDo] = []
-    
     let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
 
 
@@ -37,7 +36,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return toDoEntity.count
     }
 
@@ -77,9 +75,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toDoTableView.reloadData()
         }
     }
-    //    global vars
-    var selectName:String = ""
-    
 
     //////////////////////////
     //    select row --------------------------------------------
@@ -106,7 +101,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 UIView.animate(withDuration: 0.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
                     toDoCell.toDoItem.alpha = 1.0
                     toDoCell.toDoCheck.alpha = 1.0
-                    
                     self.context.delete(onetoDoItem)
                     // Save context back to CoreData
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -117,10 +111,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }, completion: nil)
             })
         } // end if
-        //        selectName = toDoList[indexPath.row]
-        //                self.performSegue(withIdentifier: "itemChecked", sender: nil)
-        
-        
+  
     }
     
     
@@ -157,7 +148,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print("People Entity Fetching Failed")
         }
     }
-    
+  
     
     //////////////////////////
     //    view loaded into memory--------------------------------------------
@@ -176,7 +167,39 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        let doneObj = segue.destination as! SecondViewController
 //        doneObj.transName = selectName
 //    }
-
-
+    
+    
+    
+//////////////////////////
+//    filter data--------------------------------------------
+/////////////////////////
+//    var item:[ToDo]? = nil
+//
+//    class func filterData() -> [ToDo]? {
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let fetchRequest:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+//        var item:[ToDo]? = nil
+//
+//        let predicate = NSPredicate(format: "toDoItemName contains[summer] %@", "summer")
+//        fetchRequest.predicate = predicate
+//
+//        do {
+//            item = try context.fetch(fetchRequest)
+//            return item
+//
+//        }catch {
+//            return item
+//        }
+//    }
+//    @IBAction func test(_ sender: Any) {
+//        item = FirstViewController.filterData()
+//        for i in item! {
+//            print("item name: \(i.toDoItemName!)")
+//
+//        }
+//    }
+    
+    
 }
+
 
