@@ -11,7 +11,7 @@ import UIKit
 //////////////////////////
 //    global vars--------------------------------------------
 /////////////////////////
-
+let emptyMessage = UILabel(frame: CGRect(x: 60, y: 11, width: 245, height: 22))
 
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -21,7 +21,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     @IBOutlet weak var toDoTableView: UITableView!
     
-    let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
 //////////////////////////
 //    vars--------------------------------------------
 /////////////////////////
@@ -29,13 +28,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var toDoEntity: [ToDo] = []
+    
+    let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
+
 
 //////////////////////////
 //    number of rows--------------------------------------------
 /////////////////////////
     //    number of rows = number of to do items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+
         return toDoEntity.count
+        
+
     }
 
 //////////////////////////
@@ -44,8 +50,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoCell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath) as! CustomViewCell
 
-       
-            let onetoDoItem = toDoEntity[indexPath.row]
+        let onetoDoItem = toDoEntity[indexPath.row]
+        
             if (onetoDoItem.isChecked == false) {
                 toDoCell.toDoItem.text = onetoDoItem.toDoItemName
                 toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
@@ -125,8 +131,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //    reload data here --------------------------------------------
     /////////////////////////
     override func viewDidAppear(_ animated: Bool) {
+        print("view appeared")
         getData()
-
+       
+        
         toDoTableView.reloadData()
     }
     
@@ -135,6 +143,34 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Read to do Entity into toDoEntity
         do {
             toDoEntity = try context.fetch(ToDo.fetchRequest())
+
+            if (toDoEntity.count == 0) {
+                print("noitems")
+                // CGRectMake has been deprecated - and should be let, not var
+                
+                // you will probably want to set the font (remember to use Dynamic Type!)
+                emptyMessage.font = UIFont.preferredFont(forTextStyle: .footnote)
+                
+                // and set the text color too - remember good contrast
+                emptyMessage.textColor = .black
+                
+                // may not be necessary (e.g., if the width & height match the superview)
+                // if you do need to center, CGPointMake has been deprecated, so use this
+                emptyMessage.center = CGPoint(x: 160, y: 284)
+                
+                // this changed in Swift 3 (much better, no?)
+                emptyMessage.textAlignment = .center
+                
+                emptyMessage.text = "I am a test label"
+                
+                self.view.addSubview(emptyMessage)
+            } else {
+//                print("hide it")
+//                label.removeFromSuperview()
+//                label.text = nil
+//                print("FUCING hide it")
+
+            }
         }
         catch {
             print("People Entity Fetching Failed")

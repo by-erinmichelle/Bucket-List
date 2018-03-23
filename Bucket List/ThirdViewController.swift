@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
 
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //////////////////////////
@@ -34,8 +35,10 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         toDoObj.toDoItemName = newItemInput.text
         //clear input to enter new item
         newItemInput.text = ""
-                    
             
+        //remove "no items" msg
+        emptyMessage.removeFromSuperview()
+
             // Fade out to set the text
 //            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
 //                self.newItemBtn.setTitle("Saved!", for: .normal)
