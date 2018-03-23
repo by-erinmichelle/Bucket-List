@@ -92,7 +92,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (onetoDoItem.isChecked == true) {
             toDoCell.toDoItem.text = onetoDoItem.toDoItemName
             
-            // Fade out to set the text
             UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 toDoCell.toDoItem.alpha = 0.0
                 toDoCell.toDoCheck.alpha = 0.0
@@ -100,14 +99,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
             }, completion: {
                 (finished: Bool) -> Void in
-                
-                //Once the label is completely invisible, set the text and fade it back in
-      
-                
-                // Fade in
+             
                 UIView.animate(withDuration: 0.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
                     toDoCell.toDoItem.alpha = 1.0
                     toDoCell.toDoCheck.alpha = 1.0
+                    
                     self.context.delete(onetoDoItem)
                     // Save context back to CoreData
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -117,10 +113,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.toDoTableView.reloadData()
                 }, completion: nil)
             })
-            print("check true")
-        } else {
-            print("check false")
-        }
+        } // end if
         //        selectName = toDoList[indexPath.row]
         //                self.performSegue(withIdentifier: "itemChecked", sender: nil)
         
@@ -142,7 +135,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Read to do Entity into toDoEntity
         do {
             toDoEntity = try context.fetch(ToDo.fetchRequest())
-            print("People Entity Fetching success")
         }
         catch {
             print("People Entity Fetching Failed")
