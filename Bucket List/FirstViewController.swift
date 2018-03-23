@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 /////////////////////////
     @IBOutlet weak var toDoTableView: UITableView!
     
-    
+    let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
 //////////////////////////
 //    vars--------------------------------------------
 /////////////////////////
