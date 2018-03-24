@@ -178,7 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUH-mB-Sph">
-                                <rect key="frame" x="32" y="306" width="68" height="19"/>
+                                <rect key="frame" x="32" y="306" width="138" height="19"/>
                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="16"/>
                                 <color key="textColor" name="Text"/>
                                 <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                         <constraints>
                             <constraint firstItem="BUH-mB-Sph" firstAttribute="top" secondItem="flD-Kv-9Jd" secondAttribute="bottom" constant="15" id="36g-Mk-1aq"/>
                             <constraint firstItem="AGF-x2-DP3" firstAttribute="trailing" secondItem="YcF-O7-YgT" secondAttribute="trailing" constant="200" id="Bp7-GL-YuX"/>
-                            <constraint firstItem="AGF-x2-DP3" firstAttribute="trailing" secondItem="BUH-mB-Sph" secondAttribute="trailing" constant="220" id="FCc-t5-eDY"/>
+                            <constraint firstItem="AGF-x2-DP3" firstAttribute="trailing" secondItem="BUH-mB-Sph" secondAttribute="trailing" constant="150" id="FCc-t5-eDY"/>
                             <constraint firstItem="AGF-x2-DP3" firstAttribute="trailing" secondItem="D26-PW-Plb" secondAttribute="trailing" constant="32" id="Hxf-Sy-dda"/>
                             <constraint firstItem="AGF-x2-DP3" firstAttribute="trailing" secondItem="wll-bg-GF6" secondAttribute="trailing" constant="90" id="JNj-yj-DnI"/>
                             <constraint firstItem="hBZ-DT-ugK" firstAttribute="leading" secondItem="AGF-x2-DP3" secondAttribute="leading" constant="32" id="MlP-XG-hQ0"/>
@@ -258,7 +258,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="eIt-Fz-TMA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish this goal by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQS-Jq-xhS">
