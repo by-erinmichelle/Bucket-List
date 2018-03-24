@@ -17,7 +17,9 @@ class ThirdViewController: UIViewController {
 /////////////////////////
     @IBOutlet weak var newItemInput: UITextField!
     @IBOutlet weak var newItemBtn: UIButton!
-
+    @IBOutlet weak var newItemNotes: UITextView!
+    @IBOutlet weak var newItemDate: UITextField!
+    
     //add to item to to do list by clicking "save"
     @IBAction func newItemBtn(_ sender: Any) {
         
@@ -32,9 +34,17 @@ class ThirdViewController: UIViewController {
         let toDoObj = ToDo(context: context)
         // Update atrributes with entity
         toDoObj.toDoItemName = newItemInput.text
+        toDoObj.toDoItemNotes = newItemNotes.text
+        toDoObj.toDoItemDate = newItemDate.text
+
+   
+         
+
         //clear input to enter new item
         newItemInput.text = ""
-            
+        newItemNotes.text = ""
+        newItemDate.text = ""
+
         //remove "no items" msg
         emptyMessage.removeFromSuperview()
     

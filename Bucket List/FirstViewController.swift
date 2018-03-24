@@ -14,15 +14,15 @@ import UIKit
 let emptyMessage = UILabel(frame: CGRect(x: 15, y: 50, width: 300, height: 80))
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //////////////////////////
-    //    vars--------------------------------------------
-    /////////////////////////
-    // Link context to persistentContainer
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var toDoEntity: [ToDo] = []
-    let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
-    //    global vars
-    var selectName:String = ""
+    
+//////////////////////////
+//    vars--------------------------------------------
+/////////////////////////
+// Link context to persistentContainer
+let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+var toDoEntity: [ToDo] = []
+let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
+
 //////////////////////////
 //    outlets--------------------------------------------
 /////////////////////////
@@ -77,9 +77,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
-    //////////////////////////
-    //    select row --------------------------------------------
-    /////////////////////////
+//////////////////////////
+//    select row --------------------------------------------
+/////////////////////////
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDoCell = tableView.cellForRow(at: indexPath) as! CustomViewCell
 
@@ -114,6 +114,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } // end if
   
     }
+
+    
+//////////////////////////
+//    detail btn --------------------------------------------
+/////////////////////////
     var selRowNum:Int = 0
 
     @IBAction func showDetail(_ sender:UIButton) {
@@ -124,11 +129,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = superView as! UITableViewCell
         if let indexPath = toDoTableView.indexPath(for: cell){
             selRowNum = indexPath.row
-
-//            let onetoDoItem = toDoEntity[indexPath.row]
-//            selectName = onetoDoItem.toDoItemName!
             self.performSegue(withIdentifier: "showDetail", sender: nil)
-//            print(selRowNum)
+//          print(selRowNum)
         }
     }
     
@@ -183,15 +185,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let detailObj = segue.destination as! DetailViewController
             detailObj.transRowNum = selRowNum
         }
-//        let detailObj = segue.destination as! DetailViewController
-//        detailObj.transName = selectName
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let doneObj = segue.destination as! SecondViewController
-//        doneObj.transName = selectName
-//    }
-    
+
     
     
 //////////////////////////

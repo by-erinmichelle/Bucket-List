@@ -17,8 +17,6 @@ class CustomViewCell: UITableViewCell {
     @IBOutlet weak var toDoCheck: UIImageView!
     @IBOutlet weak var toDoDetails: UIButton!
     
-  
-    
     @IBOutlet weak var newItem: UILabel!
     @IBOutlet weak var newCheck: UIImageView!
     

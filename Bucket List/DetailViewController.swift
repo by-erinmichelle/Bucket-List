@@ -17,46 +17,35 @@ class DetailViewController: UIViewController {
 
     var toDoEntity: [ToDo] = []
 
-//    var transName:String?
     var transRowNum: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // Do any additional setup after loading the view.
         if let tmpRowNum = transRowNum{
             getData()
 
             let onetoDoItem = toDoEntity[tmpRowNum]
-print(tmpRowNum)
+            print(tmpRowNum)
             itemName.text = onetoDoItem.toDoItemName
-//            detKind.text = oneWine.wineKind
-//            detYear.text = oneWine.wineYear
-//            detPrice.text = oneWine.winePrice
-//            detAdd.text = oneWine.wineAdd
+            itemNotes.text = onetoDoItem.toDoItemNotes
+            itemDate.text = onetoDoItem.toDoItemDate
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "MM/dd/yy"
+//            itemDate.text = dateFormatter.string(from: onetoDoItem.toDoItemDate!)
+
         }
     }
     
     func getData(){
         do{
             toDoEntity = try context.fetch(ToDo.fetchRequest())
-            print("toads are here from coredata")
         }
         catch {
-            print("NO TOADS HERE GO FETCH THEM FROM THE FUCKIN COREDATA")
+            print("failed")
         }
     }
-//        //if transname has info
-//        if let tmpStr = transName {
-//            itemName.text = tmpStr
-//            print(tmpStr)
-//        } else {
-//            //if theres no details yet
-//            print("nothing")
-//            itemName.text = "you dont have anything"
-//        }
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

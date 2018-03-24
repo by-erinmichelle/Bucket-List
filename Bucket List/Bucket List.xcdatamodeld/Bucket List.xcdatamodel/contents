@@ -2,13 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C205" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ToDo" representedClassName="ToDo" syncable="YES" codeGenerationType="class">
         <attribute name="isChecked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isFall" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isSpring" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isSummer" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isWinter" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="toDoItemDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDoItemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoItemNotes" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
