@@ -37,9 +37,6 @@ class ThirdViewController: UIViewController {
         toDoObj.toDoItemNotes = newItemNotes.text
         toDoObj.toDoItemDate = newItemDate.text
 
-   
-         
-
         //clear input to enter new item
         newItemInput.text = ""
         newItemNotes.text = ""
@@ -64,8 +61,6 @@ class ThirdViewController: UIViewController {
     //////////////////////////
     //    vars--------------------------------------------
     /////////////////////////
-    //    change image on click for each item
-    var toggleFlag: Bool = true
 
     //////////////////////////
     //    reload data--------------------------------------------

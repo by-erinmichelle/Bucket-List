@@ -49,7 +49,6 @@ let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
                 toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
                 toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
                 toDoCell.toDoDetails.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysTemplate), for: .normal)
-
                 toDoCell.toDoDetails.tintColor = UIColor(named: "Blue")
                 print("its false")
             }
@@ -162,7 +161,7 @@ let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
             }
         }
         catch {
-            print("People Entity Fetching Failed")
+            print("Entity Fetching Failed")
         }
     }
   

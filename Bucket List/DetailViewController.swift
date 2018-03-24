@@ -31,9 +31,6 @@ class DetailViewController: UIViewController {
             itemName.text = onetoDoItem.toDoItemName
             itemNotes.text = onetoDoItem.toDoItemNotes
             itemDate.text = onetoDoItem.toDoItemDate
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "MM/dd/yy"
-//            itemDate.text = dateFormatter.string(from: onetoDoItem.toDoItemDate!)
 
         }
     }
