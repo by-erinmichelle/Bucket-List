@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 //////////////////////////
 //    global vars--------------------------------------------
@@ -15,21 +14,19 @@ import CoreData
 let emptyMessage = UILabel(frame: CGRect(x: 15, y: 50, width: 300, height: 80))
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-//////////////////////////
-//    outlets--------------------------------------------
-/////////////////////////
-    @IBOutlet weak var toDoTableView: UITableView!
-    @IBOutlet weak var filterBtn: UIButton!
-  
-//////////////////////////
-//    vars--------------------------------------------
-/////////////////////////
+    //////////////////////////
+    //    vars--------------------------------------------
+    /////////////////////////
     // Link context to persistentContainer
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var toDoEntity: [ToDo] = []
     let customFont = UIFont(name: "Raleway-Regular", size: 16.0)
-
+    //    global vars
+    var selectName:String = ""
+//////////////////////////
+//    outlets--------------------------------------------
+/////////////////////////
+    @IBOutlet weak var toDoTableView: UITableView!
 
 //////////////////////////
 //    number of rows--------------------------------------------
@@ -51,12 +48,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 toDoCell.toDoItem.text = onetoDoItem.toDoItemName
                 toDoCell.toDoCheck.image = UIImage(named: "unchecked")?.withRenderingMode(.alwaysTemplate)
                 toDoCell.toDoCheck.tintColor = UIColor(named: "Green")
+                toDoCell.toDoDetails.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysTemplate), for: .normal)
+
+                toDoCell.toDoDetails.tintColor = UIColor(named: "Blue")
                 print("its false")
             }
         
         return toDoCell
     }
     
+
     
     //////////////////////////
     //    delete a to do item--------------------------------------------
@@ -113,7 +114,23 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } // end if
   
     }
-    
+    var selRowNum:Int = 0
+
+    @IBAction func showDetail(_ sender:UIButton) {
+        var superView = sender.superview
+        while !(superView is UITableViewCell) {
+            superView = superView?.superview
+        }
+        let cell = superView as! UITableViewCell
+        if let indexPath = toDoTableView.indexPath(for: cell){
+            selRowNum = indexPath.row
+
+//            let onetoDoItem = toDoEntity[indexPath.row]
+//            selectName = onetoDoItem.toDoItemName!
+            self.performSegue(withIdentifier: "showDetail", sender: nil)
+//            print(selRowNum)
+        }
+    }
     
     //////////////////////////
     //    reload data here --------------------------------------------
@@ -159,6 +176,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail"{
+            let detailObj = segue.destination as! DetailViewController
+            detailObj.transRowNum = selRowNum
+        }
+//        let detailObj = segue.destination as! DetailViewController
+//        detailObj.transName = selectName
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
