@@ -136,12 +136,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 emptyMessage.textColor = UIColor(named: "Text")
                 emptyMessage.numberOfLines = 3
                 
-                filterBtn.isHidden = true
                 emptyMessage.text = "You don't have anything on your bucket list right now. Click the 'Add Item' tab to set some goals!"
                 
                 self.view.addSubview(emptyMessage)
             } else {
-                filterBtn.isHidden = false
             }
         }
         catch {

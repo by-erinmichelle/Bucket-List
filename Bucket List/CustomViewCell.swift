@@ -24,6 +24,7 @@ class CustomViewCell: UITableViewCell {
     
     @IBOutlet weak var newItem: UILabel!
     @IBOutlet weak var newCheck: UIImageView!
+    @IBOutlet weak var test: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
